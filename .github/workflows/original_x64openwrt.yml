@@ -4,15 +4,15 @@
 # Author: Allcloud
 #=================================================
 
-name: original_X64openwrt
+name: x64openwrt
 
 on: 
   release:
     types: [published]
 
-  push:
-    branches: 
-      - master
+  #push:
+  #  branches: 
+  #    - master
 
   # schedule:
   #  - cron: 0 8 * * 5
@@ -69,12 +69,12 @@ jobs:
         ./scripts/feeds install -a
         ./scripts/feeds install -a
 
-    - name: Configuration Customization - 3Bopenwrt
+    - name: Configuration Customization
       env:
         CONFIG_FILE: 'orginal_x64openwrt.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        chmod +x ./orginal_x64openwrt.sh && ./orginal_x64openwrt.sh
+        chmod +x ./x64openwrt.sh && ./x64openwrt.sh
         cd openwrt && make defconfig
         
     - name: Download package
