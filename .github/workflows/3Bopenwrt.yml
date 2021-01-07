@@ -17,8 +17,8 @@ on:
   # schedule:
   #  - cron: 0 8 * * 5
   
- #watch:
- #  types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:
@@ -93,5 +93,5 @@ jobs:
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: 3B123OpenWrt
+        name: 3B0107OpenWrt
         path: openwrt/bin
